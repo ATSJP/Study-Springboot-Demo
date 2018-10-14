@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>demo-apply</artifactId>
+    <packaging>jar</packaging>
+
+    <name>demo-apply</name>
+    <description>Demo project for Spring Boot</description>
+
+    <parent>
+        <groupId>com.demo</groupId>
+        <artifactId>demo-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath><!-- lookup parent from repository -->
+    </parent>
+
+    <dependencies>
+        <!-- 加入其余模块的依赖 -->
+        <dependency>
+            <groupId>com.demo</groupId>
+            <artifactId>demo-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.demo</groupId>
+            <artifactId>demo-static</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <!-- 当所依赖的其他模块，有启动类的时候，需要以下配置，指定唯一启动类，
+                        本次事例未涉及其他模块有启动类，可自行测试 -->
+                <configuration>
+                    <!-- 指定该Main Class为全局的唯一入口 -->
+                    <mainClass>com.demo.demoapply.DemoApplyApplication</mainClass>
+                    <layout>ZIP</layout>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal><!--可以把依赖的包都打包到生成的Jar包中-->
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
