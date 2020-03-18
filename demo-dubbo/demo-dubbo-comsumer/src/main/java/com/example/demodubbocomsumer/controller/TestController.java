@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
-    @Reference
+    @Reference(url = "dubbo://127.0.0.1:20880")
     private TestProvider testProvider;
 
     @GetMapping("/test")

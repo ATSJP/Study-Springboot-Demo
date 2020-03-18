@@ -1,21 +1,6 @@
-server:
-  port: 8080
-
-dubbo:
-  application:
-    ###########注册到注册中心的名称############
-    name: provider
-  ###########采用协议和端口号################
-  protocol:
-    ###########采用dubbo协议####################
-    name: dubbo
-    ###########发布dubbo端口号为20880###########
-    port: 20880
-  registry:
-    ###########注册中心地址#####################
-    address: zookeeper://192.168.126.129:2181
-
 spring:
-  output:
-    ansi:
-      enabled: always
+  application:
+    name: dubbo-spring-boot-starter
+  dubbo:
+    server: true
+    registry: N/A
