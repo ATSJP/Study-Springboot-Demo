@@ -5,6 +5,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>demo-dubbo-api</module>
+        <module>demo-dubbo-comsumer</module>
+        <module>demo-dubbo-provider</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
