@@ -29,10 +29,11 @@ class CountRunnable implements Runnable {
 		this.countDownLatch = countDownLatch;
 	}
 
-	@Override public void run() {
+	@Override
+	public void run() {
 		try {
 			synchronized (countDownLatch) {
-				/*** 每次减少一个容量*/
+				/*** 每次减少一个容量 */
 				countDownLatch.countDown();
 				System.out.println("thread counts = " + (countDownLatch.getCount()));
 			}

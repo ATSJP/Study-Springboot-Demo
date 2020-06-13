@@ -28,59 +28,61 @@ import java.util.List;
  */
 public class ApacheHttpClientTest {
 
-    private Logger logger = LoggerFactory.getLogger(ApacheHttpClientTest.class);
+	private Logger logger = LoggerFactory.getLogger(ApacheHttpClientTest.class);
 
-    @Test void test1() throws IOException {
-        CloseableHttpClient httpclient = HttpClients.createDefault();
-        HttpGet httpGet = new HttpGet("https://www.shijianpeng.top");
-        CloseableHttpResponse response1 = httpclient.execute(httpGet);
-        try {
-            logger.info("GET------------:{}", response1.getStatusLine());
-            HttpEntity entity1 = response1.getEntity();
-            logger.info("GET------------:{}", entity1.getContent().read());
-            EntityUtils.consume(entity1);
-        } finally {
-            response1.close();
-        }
+	@Test
+	void test1() throws IOException {
+		CloseableHttpClient httpclient = HttpClients.createDefault();
+		HttpGet httpGet = new HttpGet("https://www.shijianpeng.top");
+		CloseableHttpResponse response1 = httpclient.execute(httpGet);
+		try {
+			logger.info("GET------------:{}", response1.getStatusLine());
+			HttpEntity entity1 = response1.getEntity();
+			logger.info("GET------------:{}", entity1.getContent().read());
+			EntityUtils.consume(entity1);
+		} finally {
+			response1.close();
+		}
 
-        HttpPost httpPost = new HttpPost("https://www.shijianpeng.top");
-        List<NameValuePair> nvps = new ArrayList<>();
-        nvps.add(new BasicNameValuePair("loginName", "atsjp"));
-        nvps.add(new BasicNameValuePair("password", "sjp520cwjava"));
-        nvps.add(new BasicNameValuePair("sid", "API_ALL"));
-        httpPost.setEntity(new UrlEncodedFormEntity(nvps));
-        CloseableHttpResponse response2 = httpclient.execute(httpPost);
+		HttpPost httpPost = new HttpPost("https://www.shijianpeng.top");
+		List<NameValuePair> nvps = new ArrayList<>();
+		nvps.add(new BasicNameValuePair("loginName", "atsjp"));
+		nvps.add(new BasicNameValuePair("password", "sjp520cwjava"));
+		nvps.add(new BasicNameValuePair("sid", "API_ALL"));
+		httpPost.setEntity(new UrlEncodedFormEntity(nvps));
+		CloseableHttpResponse response2 = httpclient.execute(httpPost);
 
-        try {
-            logger.info("POSY------------:{}", response2.getStatusLine());
-            HttpEntity entity2 = response2.getEntity();
-            EntityUtils.consume(entity2);
-            logger.info("POST------------:{}", entity2);
-        } finally {
-            response2.close();
-        }
-    }
+		try {
+			logger.info("POSY------------:{}", response2.getStatusLine());
+			HttpEntity entity2 = response2.getEntity();
+			EntityUtils.consume(entity2);
+			logger.info("POST------------:{}", entity2);
+		} finally {
+			response2.close();
+		}
+	}
 
-    @Test void test2() throws IOException {
-        CloseableHttpClient httpclient = HttpClients.createDefault();
-        try {
-            HttpGet httpget = new HttpGet("https://www.shijianpeng.top");
-            System.out.println("Executing request " + httpget.getRequestLine());
-            // Create a custom response handler
-            ResponseHandler<String> responseHandler = response -> {
-                int status = response.getStatusLine().getStatusCode();
-                if (status >= 200 && status < 300) {
-                    HttpEntity entity = response.getEntity();
-                    return entity != null ? EntityUtils.toString(entity) : null;
-                } else {
-                    throw new ClientProtocolException("Unexpected response status: " + status);
-                }
-            };
-            String responseBody = httpclient.execute(httpget, responseHandler);
-            System.out.println("----------------------------------------");
-            System.out.println(responseBody);
-        } finally {
-            httpclient.close();
-        }
-    }
+	@Test
+	void test2() throws IOException {
+		CloseableHttpClient httpclient = HttpClients.createDefault();
+		try {
+			HttpGet httpget = new HttpGet("https://www.shijianpeng.top");
+			System.out.println("Executing request " + httpget.getRequestLine());
+			// Create a custom response handler
+			ResponseHandler<String> responseHandler = response -> {
+				int status = response.getStatusLine().getStatusCode();
+				if (status >= 200 && status < 300) {
+					HttpEntity entity = response.getEntity();
+					return entity != null ? EntityUtils.toString(entity) : null;
+				} else {
+					throw new ClientProtocolException("Unexpected response status: " + status);
+				}
+			};
+			String responseBody = httpclient.execute(httpget, responseHandler);
+			System.out.println("----------------------------------------");
+			System.out.println(responseBody);
+		} finally {
+			httpclient.close();
+		}
+	}
 }
