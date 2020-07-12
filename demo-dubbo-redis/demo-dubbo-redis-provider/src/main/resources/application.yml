@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: demo-dubbo-redis-provider
+  dubbo:
+    server: true
+    registry: N/A
