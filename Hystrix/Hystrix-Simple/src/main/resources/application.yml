@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+# 以下打开健康检查
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
