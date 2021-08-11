@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>demo-apache-dubbo-consumer</artifactId>
+    <artifactId>apache-dubbo-consumer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>apache-dubbo-consumer</name>
     <description>apache-dubbo-consumer</description>
@@ -22,8 +22,8 @@
     <dependencies>
         <dependency>
             <groupId>com.example</groupId>
-            <version>0.0.1-SNAPSHOT</version>
             <artifactId>apache-dubbo-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.apache.dubbo</groupId>

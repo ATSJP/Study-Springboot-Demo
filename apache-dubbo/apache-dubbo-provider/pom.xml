@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>com.example</groupId>
-    <artifactId>demo-apache-dubbo-provider</artifactId>
+    <artifactId>apache-dubbo-provider</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>apache-dubbo-provider</name>
     <description>apache-dubbo-provider</description>
