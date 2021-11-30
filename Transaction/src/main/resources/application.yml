@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    username: hsp
+    password: 123456
+    url: jdbc:hsqldb:mem://localhost/blogdb;shutdown=true
+    driver-class-name: org.hsqldb.jdbcDriver
