@@ -59,6 +59,7 @@ public class CacheConfig {
     // maximumSize和maximumWeight不可以同时使用
     cacheManager.setCacheSpecification(
         "initialCapacity=50,maximumSize=500,expireAfterWrite=1h,recordStats");
+    cacheManager.setAllowNullValues(true);
     cacheManager.setCacheNames(Collections.singletonList("userInfo"));
     return cacheManager;
   }
