@@ -7,20 +7,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author shijianpeng
- */
+/** @author atsjp */
 @RestController
 public class TestController {
 
   @GetMapping("/hello3")
-  @HystrixCommand(groupKey = "hello3GroupKey", commandKey = "hello3CommandKey",
-      threadPoolKey = "hello3ThreadPoolKey", fallbackMethod = "defaultHello3",
-      commandProperties = {@HystrixProperty(
-          name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000")},
-      threadPoolProperties = {@HystrixProperty(name = "coreSize", value = "10"),
-          @HystrixProperty(name = "maxQueueSize", value = "1000"),
-          @HystrixProperty(name = "queueSizeRejectionThreshold", value = "100")},
+  @HystrixCommand(
+      groupKey = "hello3GroupKey",
+      commandKey = "hello3CommandKey",
+      threadPoolKey = "hello3ThreadPoolKey",
+      fallbackMethod = "defaultHello3",
+      commandProperties = {
+        @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000")
+      },
+      threadPoolProperties = {
+        @HystrixProperty(name = "coreSize", value = "10"),
+        @HystrixProperty(name = "maxQueueSize", value = "1000"),
+        @HystrixProperty(name = "queueSizeRejectionThreshold", value = "100")
+      },
       defaultFallback = "defaultHello3")
   public Object hello3() {
     // 模拟业务操作耗时
@@ -35,8 +39,11 @@ public class TestController {
   }
 
   @GetMapping("/hello2")
-  @HystrixCommand(fallbackMethod = "defaultHello2", commandProperties = {
-      @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "100")})
+  @HystrixCommand(
+      fallbackMethod = "defaultHello2",
+      commandProperties = {
+        @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "100")
+      })
   public Object hello2(Integer time) {
     // 模拟业务操作耗时
     try {
@@ -72,5 +79,4 @@ public class TestController {
   public Object defaultHello3() {
     return "limit2";
   }
-
 }

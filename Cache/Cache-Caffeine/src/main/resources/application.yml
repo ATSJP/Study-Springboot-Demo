@@ -1,6 +1,10 @@
 spring:
   application:
-    name: prometheus
+    name: Cache-Caffeine
+  cache:
+    cache-names: userInfo
+    caffeine:
+      spec: initialCapacity=50,maximumSize=500,expireAfterAccess=10m,recordStats
 management:
   endpoints:
     web:

@@ -47,7 +47,9 @@ public class TestController {
     return result;
   }
 
-  @SentinelResource(value = "HelloWorld2", blockHandler = "exception2Handler",
+  @SentinelResource(
+      value = "HelloWorld2",
+      blockHandler = "exception2Handler",
       fallback = "hello2Fallback")
   @GetMapping("/hello2")
   public String hello2() {
@@ -55,19 +57,14 @@ public class TestController {
     return "hello2";
   }
 
-  /**
-   * Fallback 函数，函数签名与原函数一致或加一个 Throwable 类型的参数
-   */
+  /** Fallback 函数，函数签名与原函数一致或加一个 Throwable 类型的参数 */
   public String hello2Fallback() {
     return "hello2Fallback";
   }
 
-  /**
-   * Block 异常处理函数，参数最后多一个 BlockException，其余与原函数一致.
-   */
+  /** Block 异常处理函数，参数最后多一个 BlockException，其余与原函数一致. */
   public String exception2Handler(BlockException ex) {
     ex.printStackTrace();
     return "hello2BlockException";
   }
-
 }

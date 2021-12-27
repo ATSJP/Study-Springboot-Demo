@@ -5,16 +5,13 @@ import org.springframework.stereotype.Component;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.example.demo.DemoDubboRedisApi;
 
-/**
- * @author shijianpeng
- */
+/** @author atsjp */
 @Service(interfaceClass = DemoDubboRedisApi.class)
 @Component
 public class DemoDubboRedisApiImpl implements DemoDubboRedisApi {
 
-	@Override
-	public String sayHello(String name) {
-		return name + " hello";
-	}
-
+  @Override
+  public String sayHello(String name) {
+    return name + " hello";
+  }
 }

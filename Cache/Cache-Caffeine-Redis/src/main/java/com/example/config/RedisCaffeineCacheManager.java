@@ -32,7 +32,8 @@ public class RedisCaffeineCacheManager implements CacheManager {
 
   private Set<String> cacheNames;
 
-  public RedisCaffeineCacheManager(CacheRedisCaffeineProperties cacheRedisCaffeineProperties,
+  public RedisCaffeineCacheManager(
+      CacheRedisCaffeineProperties cacheRedisCaffeineProperties,
       RedisTemplate<Object, Object> redisTemplate) {
     super();
     this.cacheRedisCaffeineProperties = cacheRedisCaffeineProperties;
@@ -95,6 +96,4 @@ public class RedisCaffeineCacheManager implements CacheManager {
     RedisCaffeineCache redisCaffeineCache = (RedisCaffeineCache) cache;
     redisCaffeineCache.clearLocal(key);
   }
-
 }
-

@@ -1,11 +1,7 @@
 package com.example.demo;
 
-/**
- *
- * @author shijianpeng
- */
+/** @author atsjp */
 public interface DemoDubboRedisApi {
 
-	public String sayHello(String name);
-
+  public String sayHello(String name);
 }

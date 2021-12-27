@@ -8,5 +8,4 @@ class SpringCacheApplicationTests {
 
   @Test
   void contextLoads() {}
-
 }

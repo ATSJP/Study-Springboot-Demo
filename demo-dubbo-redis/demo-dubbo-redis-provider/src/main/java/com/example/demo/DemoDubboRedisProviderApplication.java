@@ -9,8 +9,7 @@ import com.alibaba.dubbo.spring.boot.annotation.EnableDubboConfiguration;
 @EnableDubboConfiguration
 public class DemoDubboRedisProviderApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DemoDubboRedisProviderApplication.class, args);
-	}
-
+  public static void main(String[] args) {
+    SpringApplication.run(DemoDubboRedisProviderApplication.class, args);
+  }
 }

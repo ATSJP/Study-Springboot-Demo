@@ -33,7 +33,9 @@ public class RedisCaffeineCache extends AbstractValueAdaptingCache {
     super(allowNullValues);
   }
 
-  public RedisCaffeineCache(String name, RedisTemplate<Object, Object> redisTemplate,
+  public RedisCaffeineCache(
+      String name,
+      RedisTemplate<Object, Object> redisTemplate,
       Cache<Object, Object> caffeineCache,
       CacheRedisCaffeineProperties cacheRedisCaffeineProperties) {
     super(cacheRedisCaffeineProperties.isCacheNullValues());
@@ -99,8 +101,9 @@ public class RedisCaffeineCache extends AbstractValueAdaptingCache {
     }
     long expire = getExpire();
     if (expire > 0) {
-      redisTemplate.opsForValue().set(getKey(key), toStoreValue(value), expire,
-          TimeUnit.MILLISECONDS);
+      redisTemplate
+          .opsForValue()
+          .set(getKey(key), toStoreValue(value), expire, TimeUnit.MILLISECONDS);
     } else {
       redisTemplate.opsForValue().set(getKey(key), toStoreValue(value));
     }
@@ -120,8 +123,9 @@ public class RedisCaffeineCache extends AbstractValueAdaptingCache {
       if (prevValue == null) {
         long expire = getExpire();
         if (expire > 0) {
-          redisTemplate.opsForValue().set(getKey(key), toStoreValue(value), expire,
-              TimeUnit.MILLISECONDS);
+          redisTemplate
+              .opsForValue()
+              .set(getKey(key), toStoreValue(value), expire, TimeUnit.MILLISECONDS);
         } else {
           redisTemplate.opsForValue().set(getKey(key), toStoreValue(value));
         }
@@ -176,8 +180,12 @@ public class RedisCaffeineCache extends AbstractValueAdaptingCache {
   }
 
   private Object getKey(Object key) {
-    return this.name.concat(":").concat(StringUtils.isEmpty(cachePrefix) ? key.toString()
-        : cachePrefix.concat(":").concat(key.toString()));
+    return this.name
+        .concat(":")
+        .concat(
+            StringUtils.isEmpty(cachePrefix)
+                ? key.toString()
+                : cachePrefix.concat(":").concat(key.toString()));
   }
 
   private long getExpire() {

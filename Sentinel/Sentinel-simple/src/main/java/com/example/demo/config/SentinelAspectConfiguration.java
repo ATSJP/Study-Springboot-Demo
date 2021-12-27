@@ -5,9 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.alibaba.csp.sentinel.annotation.aspectj.SentinelResourceAspect;
 
-/**
- * @author shijianpeng
- */
+/** @author atsjp */
 @Configuration
 public class SentinelAspectConfiguration {
 
@@ -15,5 +13,4 @@ public class SentinelAspectConfiguration {
   public SentinelResourceAspect sentinelResourceAspect() {
     return new SentinelResourceAspect();
   }
-
 }

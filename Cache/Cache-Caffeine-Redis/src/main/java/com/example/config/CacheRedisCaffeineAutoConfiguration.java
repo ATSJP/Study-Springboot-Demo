@@ -21,8 +21,7 @@ import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 @EnableConfigurationProperties(CacheRedisCaffeineProperties.class)
 public class CacheRedisCaffeineAutoConfiguration {
 
-  @Autowired
-  private CacheRedisCaffeineProperties cacheRedisCaffeineProperties;
+  @Autowired private CacheRedisCaffeineProperties cacheRedisCaffeineProperties;
 
   @Bean
   @ConditionalOnBean(RedisTemplate.class)
@@ -39,10 +38,8 @@ public class CacheRedisCaffeineAutoConfiguration {
     redisMessageListenerContainer.setConnectionFactory(redisTemplate.getConnectionFactory());
     CacheMessageListener cacheMessageListener =
         new CacheMessageListener(redisTemplate, redisCaffeineCacheManager);
-    redisMessageListenerContainer.addMessageListener(cacheMessageListener,
-        new ChannelTopic(cacheRedisCaffeineProperties.getRedis().getTopic()));
+    redisMessageListenerContainer.addMessageListener(
+        cacheMessageListener, new ChannelTopic(cacheRedisCaffeineProperties.getRedis().getTopic()));
     return redisMessageListenerContainer;
   }
-
 }
-

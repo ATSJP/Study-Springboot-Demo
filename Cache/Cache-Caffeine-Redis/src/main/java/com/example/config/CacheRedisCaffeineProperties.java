@@ -22,6 +22,7 @@ public class CacheRedisCaffeineProperties {
 
   /** 缓存key的前缀 */
   private String cachePrefix;
+
   private Redis redis = new Redis();
   private Caffeine caffeine = new Caffeine();
 
@@ -58,7 +59,6 @@ public class CacheRedisCaffeineProperties {
     public void setTopic(String topic) {
       this.topic = topic;
     }
-
   }
 
   public class Caffeine {

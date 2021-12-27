@@ -8,5 +8,5 @@ package com.demo.dubbo.api;
  */
 public interface TestProvider {
 
-    String get(String a);
+  String get(String a);
 }

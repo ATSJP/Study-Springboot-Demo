@@ -18,14 +18,18 @@ public class CacheRedisCaffeineService {
     return 1L;
   }
 
-  @Cacheable(key = "'cache_user_name_' + #name", value = "userNameCache",
+  @Cacheable(
+      key = "'cache_user_name_' + #name",
+      value = "userNameCache",
       cacheManager = "cacheManager")
   public Long get(String name) {
     logger.info("get by name from db");
     return 1L;
   }
 
-  @CachePut(key = "'cache_user_id_' + #userVO.id", value = "userIdCache",
+  @CachePut(
+      key = "'cache_user_id_' + #userVO.id",
+      value = "userIdCache",
       cacheManager = "cacheManager")
   public Long update(String userVO) {
     logger.info("update to db");
@@ -36,5 +40,4 @@ public class CacheRedisCaffeineService {
   public void delete(long id) {
     logger.info("delete from db");
   }
-
 }

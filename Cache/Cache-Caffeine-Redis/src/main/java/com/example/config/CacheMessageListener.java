@@ -16,7 +16,8 @@ public class CacheMessageListener implements MessageListener {
   private RedisTemplate<Object, Object> redisTemplate;
   private RedisCaffeineCacheManager redisCaffeineCacheManager;
 
-  public CacheMessageListener(RedisTemplate<Object, Object> redisTemplate,
+  public CacheMessageListener(
+      RedisTemplate<Object, Object> redisTemplate,
       RedisCaffeineCacheManager redisCaffeineCacheManager) {
     super();
     this.redisTemplate = redisTemplate;
@@ -29,8 +30,8 @@ public class CacheMessageListener implements MessageListener {
         (CacheMessage) redisTemplate.getValueSerializer().deserialize(message.getBody());
     logger.debug(
         "recevice a redis topic message, clear local cache, the cacheName is {}, the key is {}",
-        cacheMessage.getCacheName(), cacheMessage.getKey());
+        cacheMessage.getCacheName(),
+        cacheMessage.getKey());
     redisCaffeineCacheManager.clearLocal(cacheMessage.getCacheName(), cacheMessage.getKey());
   }
-
 }

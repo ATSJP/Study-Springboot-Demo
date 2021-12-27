@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
 @Service(interfaceClass = TestProvider.class)
 @Component
 public class TestProviderImpl implements TestProvider {
-    @Override
-    public String get(String a) {
-        return a + "cc";
-    }
+  @Override
+  public String get(String a) {
+    return a + "cc";
+  }
 }
