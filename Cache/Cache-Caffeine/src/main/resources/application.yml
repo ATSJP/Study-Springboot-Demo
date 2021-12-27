@@ -4,12 +4,13 @@ spring:
   cache:
     cache-names: userInfo
     caffeine:
-      spec: initialCapacity=50,maximumSize=500,expireAfterAccess=10m,recordStats
+      spec: initialCapacity=50,maximumSize=500,expireAfterAccess=10s,recordStats
 management:
   endpoints:
     web:
       exposure:
         include: "*"
   metrics:
+    # 自定义标签
     tags:
       application: ${spring.application.name}

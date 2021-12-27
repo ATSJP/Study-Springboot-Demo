@@ -1,7 +1,6 @@
 package com.example.cache.caffeine.web;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -12,7 +11,6 @@ import java.util.HashMap;
 /** @author atsjp */
 @Slf4j
 @Service
-@CacheConfig(cacheNames = "caffeineCacheManager")
 public class UserInfoService {
 
   /** 模拟数据库存储数据 */
