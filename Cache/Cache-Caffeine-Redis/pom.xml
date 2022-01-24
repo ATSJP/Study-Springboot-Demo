@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>Spring-Cache</artifactId>
+    <artifactId>Cache-Caffeine-Redis</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Spring-Cache</name>
-    <description>Spring-Cache</description>
+    <name>Cache-Caffeine-Redis</name>
+    <description>Cache-Caffeine-Redis</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
