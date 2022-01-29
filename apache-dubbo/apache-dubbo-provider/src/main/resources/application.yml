@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: dubbo-provider-demo
+
+dubbo:
+  scan:
+    base-packages: com.example.demoapachedubboprovider.provider
+  protocol:
+    name: dubbo
+    port: 12345
+    threads: 400
+    threadpool: fixed
+    status: threadpool
+  registry:
+    address: N/A
+
+# actuator \u76D1\u63A7
+management:
+  endpoints:
+    web:
+      basePath: /appInfo
+  server:
+    port: 7060
+  endpoint:
+    health:
+      show-details: always
+  health:
+    dubbo:
+      status:
+        defaults: memory,load
+        extras: threadpool
+        # registry,spring,datasource,server,
