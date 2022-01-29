@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>demo-dubbo-comsumer</artifactId>
+    <artifactId>dubbo-comsumer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo-dubbo-comsumer</name>
+    <name>dubbo-comsumer</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -24,7 +24,7 @@
     <dependencies>
         <dependency>
             <groupId>com.example</groupId>
-            <artifactId>demo-dubbo-api</artifactId>
+            <artifactId>dubbo-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
