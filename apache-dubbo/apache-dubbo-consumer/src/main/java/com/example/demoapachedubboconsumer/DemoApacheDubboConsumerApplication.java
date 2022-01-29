@@ -9,6 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 
+/** @author atsjp */
 @EnableAutoConfiguration
 public class DemoApacheDubboConsumerApplication {
 
@@ -24,7 +25,8 @@ public class DemoApacheDubboConsumerApplication {
   @Bean
   public ApplicationRunner runner() {
     return args -> {
-      logger.info("========================================= " + testProvider.get("test"));
+      logger.info(
+          "\n\n========================================= " + testProvider.get("test") + "\n\n");
     };
   }
 }

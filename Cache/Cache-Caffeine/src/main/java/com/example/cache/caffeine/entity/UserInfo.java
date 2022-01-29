@@ -1,4 +1,4 @@
-package com.example.cache.caffeine.web;
+package com.example.cache.caffeine.entity;
 
 import lombok.Data;
 import lombok.ToString;

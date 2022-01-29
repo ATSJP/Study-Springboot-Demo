@@ -2,6 +2,7 @@ spring:
   application:
     name: Cache-Caffeine
   cache:
+    # 可选，此处配置是为了配合监控，https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#actuator.metrics.supported.cache
     cache-names: userInfo
     caffeine:
       spec: initialCapacity=50,maximumSize=500,expireAfterAccess=10s,recordStats
@@ -11,6 +12,9 @@ management:
       exposure:
         include: "*"
   metrics:
+    enable:
+      # 开启Caches监控
+      caches: true
     # 自定义标签
     tags:
       application: ${spring.application.name}
