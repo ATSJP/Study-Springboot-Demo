@@ -16,81 +16,96 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
-  @Autowired
-  private UserService userService;
+    @Autowired
+    private UserService userService;
 
-  @PutMapping
-  public long save(@RequestBody User user) {
-    long id = System.currentTimeMillis();
-    user.setId(id);
-    userService.save(user);
-    return id;
-  }
+    @GetMapping("/findByName")
+    public List<User> findByName(String name) {
+        return userService.findByName(name);
+    }
 
-  @PostMapping
-  public String update(@RequestBody User user) {
-    userService.save(user);
-    return "success";
-  }
+    @GetMapping("/findByNameContaining")
+    public List<User> findByNameContaining(String name) {
+        return userService.findByNameContaining(name);
+    }
 
-  @GetMapping("/{id}")
-  public User getById(@PathVariable("id") Long id) {
-    return userService.getById(id);
-  }
+    @GetMapping("/findByNameAndAge")
+    public List<User> findByNameAndAge(String name, Integer age) {
+        return userService.findByNameAndAge(name, age);
+    }
 
-  @DeleteMapping("/{id}")
-  public String deleteById(@PathVariable("id") Long id) {
-    userService.deleteById(id);
-    return "success";
-  }
+    @GetMapping("/findByOrderByAgeDesc")
+    public List<User> findByOrderByAgeDesc() {
+        return userService.findByOrderByAgeDesc();
+    }
 
-  @GetMapping("/all")
-  public List<User> all() {
-    return userService.getAll();
-  }
+    @GetMapping("/findByOrderByAgeAsc")
+    public List<User> findByOrderByAgeAsc() {
+        return userService.findByOrderByAgeAsc();
+    }
 
-  @GetMapping("/listByName")
-  public List<User> listByName(String name) {
-    return userService.getListByName(name);
-  }
+    @GetMapping("/findByAgeGreaterThan")
+    public List<User> findByAgeGreaterThan(Integer age) {
+        return userService.findByAgeGreaterThan(age);
+    }
 
-  @GetMapping("/listByNameAndAge")
-  public List<User> listByNameAndAge(String name, Integer age) {
-    return userService.getListByNameAndAge(name, age);
-  }
+    @GetMapping("/findByAgeGreaterThanEqual")
+    public List<User> findByAgeGreaterThanEqual(Integer age) {
+        return userService.findByAgeGreaterThanEqual(age);
+    }
 
-  @GetMapping("/listOrderByAgeDesc")
-  public List<User> listOrderByAgeDesc() {
-    return userService.getListOrderByAgeDesc();
-  }
+    @GetMapping("/findByAgeLessThan")
+    public List<User> findByAgeLessThan(Integer age) {
+        return userService.findByAgeLessThan(age);
+    }
 
-  @GetMapping("/listOrderByAgeAsc")
-  public List<User> listOrderByAgeAsc() {
-    return userService.getListOrderByAgeAsc();
-  }
+    @GetMapping("/findByAgeLessThanEqual")
+    public List<User> findByAgeLessThanEqual(Integer age) {
+        return userService.findByAgeLessThanEqual(age);
+    }
 
-  @GetMapping("/page")
-  public Page<User> page(Integer pageNum, Integer pageSize) {
-    return userService.getPage(pageNum, pageSize);
-  }
+    @GetMapping("/findByAddressContaining")
+    public List<User> findByAddressContaining(String address) {
+        return userService.findByAddressContaining(address);
+    }
 
-  @GetMapping("/listGreaterThanAge")
-  public List<User> listGreaterThanAge(Integer age) {
-    return userService.getListGreaterThanAge(age);
-  }
+    @GetMapping("/search")
+    public Page<User> search(User user) {
+        return userService.search(user);
+    }
 
-  @GetMapping("/listGreaterThanEqualAge")
-  public List<User> listGreaterThanEqualAge(Integer age) {
-    return userService.getListGreaterThanEqualAge(age);
-  }
+    @PutMapping
+    public long save(@RequestBody User user) {
+        long id = System.currentTimeMillis();
+        user.setId(id);
+        userService.save(user);
+        return id;
+    }
 
-  @GetMapping("/listLessThanAge")
-  public List<User> listLessThanAge(Integer age) {
-    return userService.getListLessThanAge(age);
-  }
+    @PostMapping
+    public String update(@RequestBody User user) {
+        userService.save(user);
+        return "success";
+    }
 
-  @GetMapping("/listLessThanEqualAge")
-  public List<User> listLessThanEqualAge(Integer age) {
-    return userService.getListLessThanEqualAge(age);
-  }
+    @GetMapping("/{id}")
+    public User getById(@PathVariable("id") Long id) {
+        return userService.getById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteById(@PathVariable("id") Long id) {
+        userService.deleteById(id);
+        return "success";
+    }
+
+    @GetMapping("/all")
+    public List<User> all() {
+        return userService.getAll();
+    }
+
+    @GetMapping("/page")
+    public Page<User> page(Integer pageNum, Integer pageSize) {
+        return userService.getPage(pageNum, pageSize);
+    }
 }

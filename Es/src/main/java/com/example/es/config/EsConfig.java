@@ -2,6 +2,7 @@ package com.example.es.config;
 
 import lombok.Data;
 import org.apache.http.HttpHost;
+import org.elasticsearch.client.Node;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.boot.context.properties.ConfigurationProperties;

@@ -14,6 +14,8 @@ import java.util.List;
 public interface UserDao extends ElasticsearchRepository<User, Long> {
     List<User> findByName(String name);
 
+    List<User> findByNameContaining(String name);
+
     List<User> findByNameAndAge(String name, Integer age);
 
     List<User> findByOrderByAgeDesc();
@@ -27,4 +29,6 @@ public interface UserDao extends ElasticsearchRepository<User, Long> {
     List<User> findByAgeLessThan(Integer age);
 
     List<User> findByAgeLessThanEqual(Integer age);
+
+    List<User> findByAddressContaining(String address);
 }
